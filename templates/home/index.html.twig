@@ -1,20 +1,58 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Accueil - Votre Concessionnaire{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<section class="hero">
+    <h1 class="fade-in">Nouvelle Collection.</h1>
+    <p class="fade-in">Découvrez nos véhicules d'exception, alliant performance et élégance.</p>
+    <div class="hero-buttons fade-in">
+        <a href="{{ path('app_car_index') }}" class="btn btn-primary">Découvrir nos modèles</a>
+        <a href="{{ path('app_car_new') }}" class="btn btn-secondary">Ajouter un véhicule</a>
+    </div>
+</section>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<section class="content-section">
+    <h2 class="text-center">Excellence et Innovation</h2>
+    <p class="text-center">Notre sélection de véhicules représente le summum du raffinement et de la technologie automobile.</p>
+    
+    <div class="cards-grid mt-3">
+        <div class="card fade-in">
+            <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600" alt="Performance">
+            <h3>Performance</h3>
+            <p>Des moteurs d'exception pour des sensations uniques sur route.</p>
+        </div>
+        <div class="card fade-in">
+            <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=600" alt="Design">
+            <h3>Design</h3>
+            <p>Un design épuré qui incarne l'élégance moderne et intemporelle.</p>
+        </div>
+        <div class="card fade-in">
+            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600" alt="Technologie">
+            <h3>Technologie</h3>
+            <p>Les dernières innovations pour une expérience de conduite supérieure.</p>
+        </div>
+    </div>
+</section>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Elisei Daniel/Documents/B2/Composer%Maker/final_projet/final-projet-CM/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Elisei Daniel/Documents/B2/Composer%Maker/final_projet/final-projet-CM/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
+<section class="content-section" style="background-color: #1a1a1a; margin: 0; max-width: 100%; padding: 6rem 4rem;">
+    <div class="container">
+        <h2 class="text-center mb-3">Pourquoi nous choisir</h2>
+        <div class="cards-grid">
+            <div class="card">
+                <h3>Expertise</h3>
+                <p>Une équipe de professionnels passionnés à votre service depuis des années.</p>
+            </div>
+            <div class="card">
+                <h3>Qualité</h3>
+                <p>Chaque véhicule est rigoureusement sélectionné et contrôlé.</p>
+            </div>
+            <div class="card">
+                <h3>Service</h3>
+                <p>Un accompagnement personnalisé du premier contact à la livraison.</p>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
+

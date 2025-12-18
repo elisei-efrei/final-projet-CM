@@ -1,0 +1,134 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos Modèles{% endblock %}
+
+{% block body %}
+<section class="content-section" style="padding-top: 8rem;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem;">
+        <div>
+            <h1>Notre Collection</h1>
+            <p style="color: #e5e5e5; margin-top: 0.5rem;">Découvrez notre sélection de véhicules d'exception</p>
+        </div>
+        <a href="{{ path('app_car_new') }}" class="btn btn-primary">Ajouter un véhicule</a>
+    </div>
+
+    <div class="cars-grid">
+        {% if cars is not empty %}
+            {% for car in cars %}
+                <a class="car-card" href="{{ path('app_car_show', {'id': car.id}) }}" style="text-decoration: none; color: inherit;">
+                    <div class="car-card-image">
+                        {% if car.image %}
+                            <img src="{{ car.image }}" alt="{{ car.nom }}">
+                        {% else %}
+                            <div class="car-card-no-image">
+                                <p>Image non disponible</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="car-card-content">
+                        <h3>{{ car.nom }}</h3>
+                        <p class="car-card-description">{{ car.description|length > 100 ? car.description|slice(0, 100) ~ '...' : car.description }}</p>
+                        <p class="car-card-price">{{ car.prix }} €</p>
+                        <div class="car-card-actions">
+                            <span class="btn btn-secondary" style="padding: 0.6rem 1.2rem; font-size: 0.9rem; display: inline-block;">Voir détails</span>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        {% else %}
+            <p style="grid-column: 1/-1; text-align: center; padding: 4rem; color: #e5e5e5;">Aucun véhicule disponible pour le moment.</p>
+        {% endif %}
+    </div>
+</section>
+
+<style>
+    .cars-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .car-card {
+        background-color: #1a1a1a;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .car-card:hover {
+        transform: translateY(-8px);
+        border-color: var(--white);
+        box-shadow: 0 20px 50px rgba(255, 255, 255, 0.15);
+    }
+
+    .car-card-image {
+        width: 100%;
+        height: 250px;
+        overflow: hidden;
+    }
+
+    .car-card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .car-card:hover .car-card-image img {
+        transform: scale(1.1);
+    }
+
+    .car-card-no-image {
+        width: 100%;
+        height: 100%;
+        background-color: #0a0a0a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+    }
+
+    .car-card-content {
+        padding: 1.5rem;
+    }
+
+    .car-card-content h3 {
+        font-size: 1.5rem;
+        font-weight: 400;
+        margin-bottom: 0.8rem;
+        color: var(--white);
+    }
+
+    .car-card-description {
+        color: #e5e5e5;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+        min-height: 3rem;
+    }
+
+    .car-card-price {
+        font-size: 1.3rem;
+        font-weight: 500;
+        color: var(--white);
+        margin-bottom: 1.5rem;
+    }
+
+    .car-card-actions {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+        .cars-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .content-section > div:first-child {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+    }
+</style>
+{% endblock %}

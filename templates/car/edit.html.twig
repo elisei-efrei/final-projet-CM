@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier le Véhicule{% endblock %}
+
+{% block body %}
+<section class="content-section" style="padding-top: 8rem;">
+    <a href="{{ path('app_car_index') }}" style="text-decoration: none; color: #e5e5e5; margin-bottom: 2rem; display: inline-block;">← Retour à la liste</a>
+    
+    <h1 style="font-size: 3rem; font-weight: 300; margin-bottom: 2rem;">Modifier le véhicule</h1>
+
+    {{ include('car/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+    
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+        {{ include('car/_delete_form.html.twig') }}
+    </div>
+</section>
+{% endblock %}
