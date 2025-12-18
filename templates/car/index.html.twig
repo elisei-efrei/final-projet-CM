@@ -4,12 +4,9 @@
 
 {% block body %}
 <section class="content-section" style="padding-top: 8rem;">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem;">
-        <div>
-            <h1>Notre Collection</h1>
-            <p style="color: #e5e5e5; margin-top: 0.5rem;">Découvrez notre sélection de véhicules d'exception</p>
-        </div>
-        <a href="{{ path('app_car_new') }}" class="btn btn-primary">Ajouter un véhicule</a>
+    <div style="margin-bottom: 3rem;">
+        <h1>Notre Collection</h1>
+        <p style="color: #e5e5e5; margin-top: 0.5rem;">Découvrez notre sélection de véhicules d'exception</p>
     </div>
 
     <div class="cars-grid">
@@ -54,6 +51,8 @@
         border: 1px solid rgba(255, 255, 255, 0.1);
         overflow: hidden;
         transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
     }
 
     .car-card:hover {
@@ -91,6 +90,9 @@
 
     .car-card-content {
         padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
     }
 
     .car-card-content h3 {
@@ -117,6 +119,7 @@
     .car-card-actions {
         display: flex;
         gap: 0.5rem;
+        margin-top: auto;
     }
 
     @media (max-width: 768px) {
